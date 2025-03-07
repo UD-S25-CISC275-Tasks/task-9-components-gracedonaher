@@ -4,11 +4,15 @@ import { Question, QuestionType } from "./interfaces/question";
  * Create a new blank question with the given `id`, `name`, and `type. The `body` and
  * `expected` should be empty strings, the `options` should be an empty list, the `points`
  * should default to 1, and `published` should default to false.
+<<<<<<< HEAD
  * done
+=======
+>>>>>>> origin/task-state
  */
 export function makeBlankQuestion(
     id: number,
     name: string,
+<<<<<<< HEAD
     type: QuestionType,
 ): Question {
     return {
@@ -21,6 +25,11 @@ export function makeBlankQuestion(
         points: 1,
         published: false,
     };
+=======
+    type: QuestionType
+): Question {
+    return {};
+>>>>>>> origin/task-state
 }
 
 /**
@@ -29,6 +38,7 @@ export function makeBlankQuestion(
  * the `expected`, ignoring capitalization and trimming any whitespace.
  *
  * HINT: Look up the `trim` and `toLowerCase` functions.
+<<<<<<< HEAD
  * done
  */
 export function isCorrect(question: Question, answer: string): boolean {
@@ -58,6 +68,20 @@ export function isValid(question: Question, answer: string): boolean {
         }
     }
 
+=======
+ */
+export function isCorrect(question: Question, answer: string): boolean {
+    return false;
+}
+
+/**
+ * Consumes a question and a potential `answer`, and returns whether or not
+ * the `answer` is valid (but not necessarily correct). For a `short_answer_question`,
+ * any answer is valid. But for a `multiple_choice_question`, the `answer` must
+ * be exactly one of the options.
+ */
+export function isValid(question: Question, answer: string): boolean {
+>>>>>>> origin/task-state
     return false;
 }
 
@@ -66,12 +90,18 @@ export function isValid(question: Question, answer: string): boolean {
  * `id` and first 10 characters of the `name`. The two strings should be
  * separated by ": ". So for example, the question with id 9 and the
  * name "My First Question" would become "9: My First Q".
+<<<<<<< HEAD
  * done
  */
 export function toShortForm(question: Question): string {
     const truncatedName = question.name.slice(0, 10);
 
     return `${question.id}: ${truncatedName}`;
+=======
+ */
+export function toShortForm(question: Question): string {
+    return "";
+>>>>>>> origin/task-state
 }
 
 /**
@@ -92,6 +122,7 @@ export function toShortForm(question: Question): string {
  * Check the unit tests for more examples of what this looks like!
  */
 export function toMarkdown(question: Question): string {
+<<<<<<< HEAD
     let markdown = "# " + question.name + "\n" + question.body;
 
     if (question.type === "multiple_choice_question") {
@@ -101,11 +132,15 @@ export function toMarkdown(question: Question): string {
     }
 
     return markdown;
+=======
+    return "";
+>>>>>>> origin/task-state
 }
 
 /**
  * Return a new version of the given question, except the name should now be
  * `newName`.
+<<<<<<< HEAD
  * done
  */
 export function renameQuestion(question: Question, newName: string): Question {
@@ -113,12 +148,18 @@ export function renameQuestion(question: Question, newName: string): Question {
         ...question,
         name: newName,
     };
+=======
+ */
+export function renameQuestion(question: Question, newName: string): Question {
+    return question;
+>>>>>>> origin/task-state
 }
 
 /**
  * Return a new version of the given question, except the `published` field
  * should be inverted. If the question was not published, now it should be
  * published; if it was published, now it should be not published.
+<<<<<<< HEAD
  * done
  */
 export function publishQuestion(question: Question): Question {
@@ -126,6 +167,11 @@ export function publishQuestion(question: Question): Question {
         ...question,
         published: !question.published,
     };
+=======
+ */
+export function publishQuestion(question: Question): Question {
+    return question;
+>>>>>>> origin/task-state
 }
 
 /**
@@ -133,6 +179,7 @@ export function publishQuestion(question: Question): Question {
  * `options`, `expected`, and `points` without changes. The `name` should be copied
  * over as "Copy of ORIGINAL NAME" (e.g., so "Question 1" would become "Copy of Question 1").
  * The `published` field should be reset to false.
+<<<<<<< HEAD
  * done
  */
 export function duplicateQuestion(id: number, oldQuestion: Question): Question {
@@ -146,6 +193,11 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
         points: oldQuestion.points,
         published: false,
     };
+=======
+ */
+export function duplicateQuestion(id: number, oldQuestion: Question): Question {
+    return oldQuestion;
+>>>>>>> origin/task-state
 }
 
 /**
@@ -154,6 +206,7 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
  * its own separate copy of the `options` list, rather than the same reference
  * to the original question's list!
  * Check out the subsection about "Nested Fields" for more information.
+<<<<<<< HEAD
  * done
  */
 export function addOption(question: Question, newOption: string): Question {
@@ -161,6 +214,11 @@ export function addOption(question: Question, newOption: string): Question {
         ...question,
         options: [...question.options, newOption],
     };
+=======
+ */
+export function addOption(question: Question, newOption: string): Question {
+    return question;
+>>>>>>> origin/task-state
 }
 
 /**
@@ -170,12 +228,16 @@ export function addOption(question: Question, newOption: string): Question {
  * The `published` status should be set to false.
  * Notice that the second Question is provided as just an object with a `points`
  * field; but the function call would be the same as if it were a `Question` type!
+<<<<<<< HEAD
  * done
+=======
+>>>>>>> origin/task-state
  */
 export function mergeQuestion(
     id: number,
     name: string,
     contentQuestion: Question,
+<<<<<<< HEAD
     secondQuestion: Question,
 ) {
     return {
@@ -188,4 +250,9 @@ export function mergeQuestion(
         points: secondQuestion.points,
         published: false,
     };
+=======
+    { points }: { points: number }
+): Question {
+    return contentQuestion;
+>>>>>>> origin/task-state
 }
