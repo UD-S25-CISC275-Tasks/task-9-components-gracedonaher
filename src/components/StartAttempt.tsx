@@ -2,15 +2,13 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
 export function StartAttempt(): React.JSX.Element {
-    //two pieces of state
+    // two pieces of state
     const [quizInProgress, setInProgress] = useState<Boolean>(false);
     const [attempts, setAttempts] = useState<number>(4);
 
     const handleStartQuiz = () => {
-        if (attempts > 0) {
-            setAttempts((prevAttempts) => prevAttempts - 1);
-            setInProgress(true);
-        }
+        setAttempts((prevAttempts) => prevAttempts - 1);
+        setInProgress(true);
     };
 
     const handleStopQuiz = () => {
