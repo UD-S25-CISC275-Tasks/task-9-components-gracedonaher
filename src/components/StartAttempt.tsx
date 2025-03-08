@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 
 export function StartAttempt(): React.JSX.Element {
     //two pieces of state
-    const [inProgress, setInProgress] = useState<Boolean>(false);
+    const [quizInProgress, setInProgress] = useState<Boolean>(false);
     const [attempts, setAttempts] = useState<number>(4);
 
     const handleStartQuiz = () => {
@@ -24,9 +24,18 @@ export function StartAttempt(): React.JSX.Element {
     return (
         <div>
             <div>Attempts left: {attempts}</div>
-            <Button onClick={handleStartQuiz}>Start Quiz</Button>
-            <Button onClick={handleStopQuiz}>Stop Quiz</Button>
-            <Button onClick={handleMulligan}>Mulligan</Button>
+            <Button
+                onClick={handleStartQuiz}
+                disabled={quizInProgress || attempts === 0}
+            >
+                Start Quiz
+            </Button>
+            <Button onClick={handleStopQuiz} disabled={!quizInProgress}>
+                Stop Quiz
+            </Button>
+            <Button onClick={handleMulligan} disabled={quizInProgress}>
+                Mulligan
+            </Button>
         </div>
     );
 }
