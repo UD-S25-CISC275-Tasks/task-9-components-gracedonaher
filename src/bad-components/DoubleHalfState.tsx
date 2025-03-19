@@ -1,3 +1,14 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-export const [dhValue, setDhValue] = useState<number>(10);
+export function DoubleHalfState(): React.JSX.Element {
+    const [dhValue, setDhValue] = useState<number>(10);
+
+    return (
+        <div>
+            <h3>Double Half State</h3>
+            <div>
+                The current value is: <span>{dhValue}</span>
+            </div>
+        </div>
+    );
+}
